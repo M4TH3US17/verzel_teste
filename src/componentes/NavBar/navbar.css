@@ -1,0 +1,11 @@
+.carros-header-container {
+    padding:            25px;
+    background-color: #fafafa;
+    box-shadow: 0.5px 0px 2px 0.5px gray;
+}
+
+.carros-nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center
+}

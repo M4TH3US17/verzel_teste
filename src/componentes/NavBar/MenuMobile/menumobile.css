@@ -1,0 +1,50 @@
+.menu-mobile {
+    display: none;
+    text-align: right;
+    width: 50%;
+}
+
+.menu-mobile i {
+    color: black;
+    cursor: pointer;
+}
+
+.btn-burguer {
+    padding: 0px;
+    max-width: 30px;
+    color: black;
+}
+
+.btn-burguer:hover {
+    box-shadow: none;
+}
+
+.show-menu {
+    opacity: 0.8 !important;
+}
+
+.bi.bi-list {
+    color: black;
+    font-size: 20px;
+    color: black;
+}
+
+.bi-x-lg {
+    padding: 0px;
+    font-size: 20px;
+}
+
+@media (max-width: 414px) {
+    .menu-mobile {
+        display: block;
+    }
+
+    .btn-nav, .bi.bi-eye, .bi.bi-x-circle, .bi.bi-plus-circle {
+        color: white;
+    }
+
+    .btn {
+        border: none;
+        width: 100%;
+    }
+}
