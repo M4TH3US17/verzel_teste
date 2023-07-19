@@ -1,0 +1,20 @@
+.pagination {
+    margin: 0;
+}
+
+.paginacao-informations {
+    position: absolute;
+    right: 0;
+}
+
+.paginacao {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+@media (max-width: 414px) {
+    .paginacao-information-text {
+        display: none;
+    }
+}
