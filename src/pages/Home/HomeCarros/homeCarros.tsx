@@ -1,18 +1,27 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import './HomeCarros.css'
 import ListagemService from '../../../services/ListagemService';
+import HomeCard from './HomeCard/homecard';
+import { Carro } from '../../../utils/objects';
 
 const listagemService = new ListagemService();
 
 const HomeCarros = () => {
+    const [carros, setCarros] = useState<Carro[]>([]);
 
     useEffect(() => {
-        listagemService.carregaCardPorId(1).then(response => { 
-            console.log(response.data.content);
+        listagemService.carregarCards(1).then(response => {
+            setCarros(response.data.data.content);
         })
     }, []);
 
-    return (<></>);
+    return (
+        <div className="container">
+           <section className="row">
+             {carros.map(carro => (<HomeCard key={carro.id} carro={carro} />))}
+           </section>
+        </div>
+    );
 };
 
 export default HomeCarros;
