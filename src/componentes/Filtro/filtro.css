@@ -1,0 +1,35 @@
+.carros-filtro-container {
+    font-size: 16px;
+    padding: 2px;
+}
+
+.form-control-search {
+    font-size:  1rem;
+    margin-top: 0.625em;
+    height:     2.4375em;
+    width:      18.75em;
+    border:   #858484 0.03125px solid;
+    border-radius: 0px;
+}
+
+.form-select {
+    font-size:     1rem;
+    margin-top:    0.625em;
+    width:         12.5em;
+    border-radius: 2px;
+    border:      #1d1e20 0.0625em dotted;
+    background-color: #fafafa;
+}
+
+.btn-default {
+    margin-top: 0.625em;
+    height:     2.4375em;
+    border:   none;
+}
+
+@media (max-width: 414px) {
+    .form-select {
+        height: 2.6875em;
+        width:  8.125em;
+    }
+}
