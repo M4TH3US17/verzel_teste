@@ -16,12 +16,12 @@ export default function MenuMobile() {
 
             {menuAberto ?
                 (
-                    <ul>
-                        <li><button>Login</button></li>
-                        <li><button>Admin</button></li>
-                        <li><button>Salvar</button></li>
-                        <li><button>Voltar</button></li>
-                        <li><button>Sair</button></li>
+                    <ul className='menu-options animate__animated animate__fadeInRightBig'>
+                        <li><button className='btn btn-option'>Login</button></li>
+                        <li><button className='btn btn-option'>Admin</button></li>
+                        <li><button className='btn btn-option'>Salvar</button></li>
+                        <li><button className='btn btn-option'>Voltar</button></li>
+                        <li><button className='btn btn-option'>Sair</button></li>
                     </ul>
                 )
                 : null}

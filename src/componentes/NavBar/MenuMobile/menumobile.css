@@ -1,12 +1,5 @@
 .menu-mobile {
     display: none;
-    text-align: right;
-    width: 50%;
-}
-
-.menu-mobile i {
-    color: black;
-    cursor: pointer;
 }
 
 .btn-burguer {
@@ -19,10 +12,6 @@
     box-shadow: none;
 }
 
-.show-menu {
-    opacity: 0.8 !important;
-}
-
 .bi.bi-list {
     color: black;
     font-size: 20px;
@@ -32,6 +21,40 @@
 .bi-x-lg {
     padding: 0px;
     font-size: 20px;
+}
+
+.menu-options {
+    background: black;
+    border-left: 2px solid rgb(1, 87, 1);
+    box-shadow: -10px 0 10px rgba(0, 0, 0, 0.2); 
+    height: 100vh;
+    position: absolute;
+    z-index: 2;
+    right: 0;
+    top: 81px;
+    width: 70vw;
+    list-style: none;
+    padding: 0;
+
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.menu-options li {
+    display: flex;
+    width: 100%;
+}
+
+.btn-option {
+    padding-top: 4px;
+    padding-bottom: 4px;
+    margin: 0;
+    color: white;
+}
+
+.menu-options li:first-child {
+    padding-top: 10px;
 }
 
 @media (max-width: 414px) {
