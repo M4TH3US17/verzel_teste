@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './menumobile.css';
 import { Link } from 'react-router-dom';
 
 export default function MenuMobile() {
     const [menuAberto, setMenuAberto] = useState<boolean>(false);
 
-    const clicou = () => {
+    const clicou = (e: any) => {
         setMenuAberto(!menuAberto);
     }
 
     return (
         <div className='menu-mobile'>
-            <button className='btn btn-burguer' onClick={clicou}>
+            <button className='btn btn-burguer' onClick={e => clicou(e)}>
                 {menuAberto ? (<i className="bi bi-x-lg"></i>) : (<i className='bi bi-list'></i>)}
             </button>
 

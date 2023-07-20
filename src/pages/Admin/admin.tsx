@@ -1,8 +1,4 @@
 import React, { useEffect, useState } from 'react';
-//import Filtro   from '../../componentes/Filtro';
-//import NavBar   from '../../componentes/NavBar';
-/*import EditImg  from '../../assets/img/EditImg';
-import TrashImg from '../../assets/img/TrashImg/index';*/
 import { Link, useNavigate } from 'react-router-dom';
 import ListagemService from '../../services/ListagemService';
 import './admin.css';
@@ -63,16 +59,16 @@ export default function Admin() {
         if (window.matchMedia('(max-width: 414px)').matches) setIsMobile(true);
         else setIsMobile(false);
 
-        // if(new UsuarioService().estaAutenticado()) {
-        listagemService.carregarCards(pageNumber, ordem, filtro).then(response => {
-            const info = response.data;
-            console.log("SERVER RESPONSE: ", info);
+        if (new UsuarioService().estaAutenticado()) {
+            listagemService.carregarCards(pageNumber, ordem, filtro).then(response => {
+                const info = response.data;
+                console.log("SERVER RESPONSE: ", info);
 
-            if (info.code != 404) setCarros(info.data.content);
-            setPage(info.data);
-            setStatusCode(info.code)
-        });
-        // } else {/*navigate("/login")*/}
+                if (info.code != 404) setCarros(info.data.content);
+                setPage(info.data);
+                setStatusCode(info.code)
+            });
+        } else {navigate("/login") }
     }, [pageNumber, setIsMobile, setPage, setStatusCode, ordem, filtro]);
 
     const handleClickDelete = (idCarro: number) => {

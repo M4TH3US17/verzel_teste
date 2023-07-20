@@ -1,0 +1,47 @@
+.span-title {
+    color: white;
+    font-size: 14px;
+}
+
+.form-update {
+    margin-top:    30px;
+    display:       flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+}
+
+.form-update-btn {
+    margin-top: 20px;
+    width:  300px;
+    border: none;
+    padding: 3px;
+}
+
+.form-select-tipo {
+    margin-top: 23px;
+}
+
+.carro-modify-title {
+    text-align: center;
+}
+
+a {
+    text-decoration:   none;
+    color:           white;
+    background-color:#191a1c;
+    border:            double white 1px;
+    border-radius:     5px;
+    margin-right:      3px;
+    padding:           5px;
+}
+
+@media (max-width:414px) {
+    .form-select {
+        width: 99%;
+    }
+
+    .form-update-btn {
+        width:  50%;
+    }
+}

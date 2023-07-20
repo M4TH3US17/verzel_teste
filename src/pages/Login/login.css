@@ -1,0 +1,19 @@
+form div {
+    display:        flex;
+    flex-direction: column;
+}
+
+.alert-danger {
+    display: none;
+}
+
+.btn-login {
+    border: none;
+    padding: 6px;
+}
+
+.carros-form-container {
+    display:         flex;
+    justify-content: center;
+    margin-top:      90px;
+}
