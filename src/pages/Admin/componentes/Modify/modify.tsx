@@ -9,6 +9,7 @@ import ListagemService from '../../../../services/ListagemService';
 import NavBar from '../../../../componentes/NavBar/navbar';
 import UsuarioService from '../../../../services/UsuarioService';
 import { Carro, Marca } from '../../../../utils/objects';
+import { error } from 'console';
 
 const listagemService = new ListagemService();
 
@@ -42,7 +43,9 @@ export default function Modify({ isUpdate = false }) {
          if(isUpdate) {
          listagemService.carregaCardPorId(Number(carroId))
                    .then(response => {
-                     const carroDoBanco = response.data;
+                     const carroDoBanco = response.data.data;
+
+                     console.log(carroDoBanco)
          
                      setCarro(carroDoBanco.nome);
                      setAno(carroDoBanco.ano ? parseInt(carroDoBanco.ano) : 0);
@@ -72,7 +75,7 @@ export default function Modify({ isUpdate = false }) {
         } else if(Number.isInteger(Number(carroId))) {
             listagemService.atualizarCard(Number(carroId), corpoRequisicao)
             .then(()  => toast.success('Carro atualizado com sucesso!'))
-            .catch(() => toast.info('Você não informou nada.'));
+            .catch((error) => {console.log(error)}); //toast.info('Você não informou nada.')); 
         }};
 
     return (
@@ -86,32 +89,32 @@ export default function Modify({ isUpdate = false }) {
                         <div>
                             <div>
                                 <label>Carro {obrigatorio}</label>
-                                <input onChange={e => setCarro(e.target.value)} type="text" />
+                                <input onChange={e => setCarro(e.target.value)} type="text" value={carro}/>
                             </div>
 
                             <div>
                                 <label>Preço {obrigatorio}</label>
-                                <input className="form-control" onChange={e => setPreco(Number(e.target.value))} type="text" />
+                                <input className="form-control" onChange={e => setPreco(Number(e.target.value))} type="text" value={preco}/>
                             </div>
 
                             <div>
                                 <label>Ano {obrigatorio}</label>
-                                <input className="form-control" onChange={e => setAno(Number(e.target.value))} type="text" />
+                                <input className="form-control" onChange={e => setAno(Number(e.target.value))} type="text" value={ano}/>
                             </div>
 
                             <div className='mb-2'>
                                 <label>Km {obrigatorio}</label>
-                                <input className="form-control" onChange={e => setKm(Number(e.target.value))} type="text" />
+                                <input className="form-control" onChange={e => setKm(Number(e.target.value))} type="text"  value={km}/>
                             </div>
 
                             <div>
                                 <label>Url da Imagem {obrigatorio}</label>
-                                <input className="form-control" onChange={e => setUrlImg(e.target.value)} type="text" />
+                                <input className="form-control" onChange={e => setUrlImg(e.target.value)} type="text" value={urlImg}/>
                             </div>
 
                             <div>
                                 <label>Modelo {obrigatorio}</label>
-                                <input className="form-control" onChange={e => setModelo(e.target.value)} type="text" />
+                                <input className="form-control" onChange={e => setModelo(e.target.value)} type="text" value={modelo}/>
                             </div>
                         </div>
 

@@ -2,9 +2,10 @@ import React, { useEffect, useState }
                       from 'react';
 import UsuarioService from '../../services/UsuarioService';
 import {useNavigate}  from 'react-router-dom';
-import                     './style.css';
+import                     './login.css';
 import { toast } from 'react-toastify';
 import NavBar from '../../componentes/NavBar/navbar';
+import { Usuario } from '../../utils/objects';
 
 const usuarioService = new UsuarioService();
 
@@ -18,9 +19,9 @@ export default function Login() {
     const handleSubmit = (e: any) => {
         e.preventDefault();
     
-       /* usuarioService.login({login: username, senha})
+        usuarioService.login(new Usuario(username, senha))
             .then(()  =>  {navigate("/administracao")})
-            .catch(() => toast.error('Usuário não encontrado.'));*/
+            .catch(() => toast.error('Usuário não encontrado.'));
     };
 
     return (
