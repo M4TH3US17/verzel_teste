@@ -34,12 +34,12 @@ const HomeCarros = () => {
       });
 
     useEffect(() => {
-        listagemService.carregarCards(pageNumber, ordem, "").then(response => { 
+        listagemService.carregarCards(pageNumber, ordem, filtro).then(response => { 
             const info = response.data;
             console.log("SERVER RESPONSE: ", info);
-            console.log(filtro, ordem)
 
             if(info.code != 404) setCarros(info.data.content);
+
             setStatusCode(info.code)
         })
     }, [pageNumber, setStatusCode, ordem, filtro]);
