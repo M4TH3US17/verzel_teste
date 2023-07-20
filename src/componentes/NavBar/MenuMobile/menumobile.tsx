@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './menumobile.css';
+import { Link } from 'react-router-dom';
 
 export default function MenuMobile() {
     const [menuAberto, setMenuAberto] = useState<boolean>(false);
@@ -17,11 +18,11 @@ export default function MenuMobile() {
             {menuAberto ?
                 (
                     <ul className='menu-options animate__animated animate__fadeInRightBig'>
-                        <li><button className='btn btn-option'>Login</button></li>
-                        <li><button className='btn btn-option'>Admin</button></li>
-                        <li><button className='btn btn-option'>Salvar</button></li>
-                        <li><button className='btn btn-option'>Voltar</button></li>
-                        <li><button className='btn btn-option'>Sair</button></li>
+                        <li><Link to={"/login"} className='btn btn-option'>Login</Link></li>
+                        <li><Link to={"/administracao"} className='btn btn-option'>Admin</Link></li>
+                        <li><Link to={"/carros/salvar"} className='btn btn-option'>Salvar</Link></li>
+                        <li><Link to={""} className='btn btn-option'>Voltar</Link></li>
+                        <li><Link to={""} className='btn btn-option'>Sair</Link></li>
                     </ul>
                 )
                 : null}
