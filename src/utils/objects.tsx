@@ -9,9 +9,10 @@ export class Carro {
     tipo: string;
     marca: Marca;
     modelo: string;
+    reservado: boolean;
 
     constructor( id: number, nome: string, preco: number, urlImagem: string, ano: number, cor: string, km: number, tipo: string, marca: Marca,
-        modelo: string) {
+        modelo: string, reservado: boolean) {
         this.id = id;
         this.nome = nome;
         this.preco = preco;
@@ -22,6 +23,7 @@ export class Carro {
         this.tipo = tipo;
         this.marca = marca;
         this.modelo = modelo;
+        this.reservado = reservado;
     }
 }
 
