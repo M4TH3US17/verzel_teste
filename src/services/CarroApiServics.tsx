@@ -24,11 +24,11 @@ export default class CarrosApiService {
         return this.axios.delete(url);
     }
 
-    post(url: string, data: Carro) {
+    post(url: string, data: any) {
         return this.axios.post(url, data);
     }
 
-    put(url: string, data: Carro) {
+    put(url: string, data: any) {
         return this.axios.put(url, data);
     }
 };

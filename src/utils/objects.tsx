@@ -34,3 +34,13 @@ export class Marca {
         this.marca = marca;
     }
 }
+
+export class Usuario {
+    username: string;
+    senha: string;
+
+    constructor(username: string, senha: string) {
+        this.username = username;
+        this.senha = senha;
+    }
+}

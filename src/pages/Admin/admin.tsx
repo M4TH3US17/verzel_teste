@@ -6,16 +6,15 @@ import TrashImg from '../../assets/img/TrashImg/index';*/
 import {Link, useNavigate}  from 'react-router-dom';
 import ListagemService      from '../../services/ListagemService';
 import './admin.css';
-//import Paginacao from '../../componentes/Paginacao';
-//import UsuarioService from '../../services/UsuarioService';
 import { toast } from 'react-toastify';
 import NavBar from '../../componentes/NavBar/navbar';
 import Filtro from '../../componentes/Filtro/filtro';
+import Paginacao from '../../componentes/Paginacao/paginacao';
 
 const listagemService = new ListagemService();
 
 export default function Admin() {
-    /*const [carros, setCarros]   = useState([]);
+    const [carros, setCarros]   = useState([]);
     const [display, setDisplay] = useState('');
     const [filtro, setFiltro]   = useState(null);
     const [ordem, setOrdem]     = useState('preco,desc');  
@@ -25,13 +24,21 @@ export default function Admin() {
     const [page, setPage] = useState({
       content: [], last: true, totalPages: 0, totalElements: 0, size: 8, number: 0,  numberOfElements: 0, empty: true });
 
-    let handleClick = e => {
-        if(e.classList.contains('btn-proximo'))       setPageNumber(++page.number);
-        if(e.classList.contains('btn-anterior'))      setPageNumber(--page.number);
-        if(e.classList.contains('page-link-inicio'))  setPageNumber(0);
-    };
+      const inicio = () => {
+        setPageNumber(0);
+    }
 
-    document.addEventListener('click', e => {
+    const anterior = () => {
+        if(pageNumber > 0) setPageNumber(--page.number);
+    }
+
+    const proximo = () => {
+        console.log("pageNumber: " + pageNumber + " / " + page.number)
+        if(pageNumber < 1) setPageNumber(++page.number);
+    }
+
+
+    /*document.addEventListener('click', e => {
         let ordenacao = e.target.value;
     
         if(ordenacao === 'Menor KM')    setOrdem('km,asc');
@@ -45,7 +52,7 @@ export default function Admin() {
         let value = document.querySelector('.form-control-search').value;
         setFiltro(value);
     }
-      });
+      });*/
     
    useEffect(() => {
         if(window.matchMedia('(max-width: 414px)').matches) setDisplay('none');
@@ -58,7 +65,7 @@ export default function Admin() {
         } else {navigate("/")}
     }, [pageNumber, ordem, filtro]);
 
-    const handleClickDelete = (idCarro) => {
+   /* const handleClickDelete = (idCarro) => {
         listagemService.deletaCard(idCarro)
            .then(()  => toast.success('Carro de ID ' + idCarro + ' foi deletado.'))
            .catch(() =>   toast.error('Esse carro já foi deletado.'));
@@ -114,7 +121,7 @@ export default function Admin() {
             </table>
                     </div> </section>*/}
 
-        {/*</><Paginacao page={page} click={handleClick}/>*/}
+        <Paginacao page={page} inicio={inicio} proximo={proximo} anterior={anterior} pageNumber={pageNumber}/>
         </>
     );
 };
