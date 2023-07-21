@@ -1,3 +1,22 @@
+.btn-desktop {
+    height: 100%;
+    border-radius: 0;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.isSelected {
+    background: rgb(206, 206, 206);
+    border-bottom: 5px solid black;
+}
+
+.menu-desktop {
+    display: flex;
+    height: 90px;
+}
+
 @media (max-width: 414px) {
     .menu-desktop {display: none;}
 }

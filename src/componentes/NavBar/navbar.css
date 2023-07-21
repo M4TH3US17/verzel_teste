@@ -9,3 +9,9 @@
     justify-content: space-between;
     align-items: center
 }
+
+@media (min-width: 768px) {
+    .carros-header-container {
+        padding: 0;
+    }
+}
