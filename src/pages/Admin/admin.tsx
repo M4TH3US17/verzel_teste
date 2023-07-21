@@ -35,7 +35,7 @@ export default function Admin() {
     }
 
     const proximo = () => {
-       setPageNumber(++page.number);
+        if(pageNumber < 2)setPageNumber(++page.number);
     }
 
 
@@ -56,19 +56,26 @@ export default function Admin() {
     });
 
     useEffect(() => {
-        if (window.matchMedia('(max-width: 414px)').matches) setIsMobile(true);
-        else setIsMobile(false);
+        const carregarDados = async () => {
+            try {
+                if (window.matchMedia('(max-width: 414px)').matches) setIsMobile(true);
+                else setIsMobile(false);
 
-        if (new UsuarioService().estaAutenticado()) {
-            listagemService.carregarCards(pageNumber, ordem, filtro).then(response => {
-                const info = response.data;
-                console.log("SERVER RESPONSE: ", info);
+                if (new UsuarioService().estaAutenticado()) {
+                    const response = await listagemService.carregarCards(pageNumber, ordem, filtro);
+                    const info = response.data;
+                    console.log("SERVER RESPONSE: ", info);
 
-                if (info.code != 404) setCarros(info.data.content);
-                setPage(info.data);
-                setStatusCode(info.code)
-            });
-        } else {navigate("/login") }
+                    if (info.code !== 404) setCarros(info.data.content);
+                    setPage(info.data);
+                    setStatusCode(info.code);
+                } else navigate("/login");
+            } catch (error) {
+                console.error('Erro ao carregar os dados:', error);
+            }
+        };
+
+        carregarDados();
     }, [pageNumber, setIsMobile, setPage, setStatusCode, ordem, filtro]);
 
     const handleClickDelete = (idCarro: number) => {
@@ -131,8 +138,8 @@ export default function Admin() {
                         </tbody>
                     </table>
                     <Paginacao page={page} inicio={inicio} proximo={proximo} anterior={anterior} pageNumber={pageNumber} />
-                </div> 
-                </section>}
+                </div>
+            </section>}
         </>
     );
 };

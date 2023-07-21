@@ -11,7 +11,6 @@ const listagemService = new ListagemService();
 const HomeCarros = () => {
     const [carros, setCarros] = useState<Carro[]>([]);
     const [pageNumber, setPageNumber] = useState<number>(0);
-    const [totalPages, setTotalPages] = useState<number>(0);
     const [statusCode, setStatusCode] = useState(0);
     const [page, setPage] = useState({ content: [], last: true, totalPages: 0, totalElements: 0, size: 8, number: 0, numberOfElements: 0, empty: true });
 
@@ -35,21 +34,24 @@ const HomeCarros = () => {
     });
 
     useEffect(() => {
-        listagemService.carregarCards(pageNumber, ordem, filtro).then(response => {
-            const info = response.data;
-            let totalPaginas = info.data.totalPages
+        const carregarDados = async () => {
+            try {
+                const response = await listagemService.carregarCards(pageNumber, ordem, filtro);
+                const info = response.data;
+                let totalPaginas = info.data.totalPages;
 
-            console.log("SERVER RESPONSE: ", info);
+                console.log("SERVER RESPONSE: ", info);
 
-            if (info.code != 404) setCarros(info.data.content);
+                if (info.code !== 404) setCarros(info.data.content);
 
-            if(typeof (totalPages) !== 'undefined' && totalPages !== null) {
-                console.log("entrou")
-                setTotalPages(totalPaginas);
+                setStatusCode(info.code);
+            } catch (error) {
+                console.error('Erro ao carregar os dados:', error);
             }
-            setStatusCode(info.code)
-        })
-    }, [pageNumber, setStatusCode, ordem, filtro, setTotalPages, totalPages]);
+        };
+
+        carregarDados();
+    }, [pageNumber, ordem, filtro, setCarros, setStatusCode]);
 
     const inicio = () => {
         setPageNumber(0);
@@ -60,9 +62,7 @@ const HomeCarros = () => {
     }
 
     const proximo = () => {
-        if (pageNumber <= totalPages!) {
-            setPageNumber(++page.number);
-        }
+        setPageNumber(++page.number);
     }
 
     return (
