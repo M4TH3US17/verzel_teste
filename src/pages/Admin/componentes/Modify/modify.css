@@ -37,6 +37,12 @@ a {
 }
 
 @media (max-width:414px) {
+    .form-update-btn {
+        width: 90% !important;
+        padding: 10px;
+        margin-top: 20px;
+    }
+
     .form-select {
         width: 99%;
     }

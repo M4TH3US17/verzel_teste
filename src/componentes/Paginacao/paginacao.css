@@ -2,19 +2,26 @@
     margin: 0;
 }
 
-.paginacao-informations {
+/*.paginacao-informations {
     position: absolute;
     right: 0;
-}
+}*/
 
 .paginacao {
     display: flex;
     align-items: center;
-    position: relative;
 }
 
 @media (max-width: 414px) {
+    .paginacao {
+        margin-bottom: 9px;
+    }
+
     .paginacao-information-text {
+        display: none;
+    }
+
+    .isMobile {
         display: none;
     }
 }

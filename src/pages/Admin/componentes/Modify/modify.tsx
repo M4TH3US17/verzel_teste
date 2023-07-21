@@ -9,7 +9,6 @@ import ListagemService from '../../../../services/ListagemService';
 import NavBar from '../../../../componentes/NavBar/navbar';
 import UsuarioService from '../../../../services/UsuarioService';
 import { Carro, Marca } from '../../../../utils/objects';
-import { error } from 'console';
 
 const listagemService = new ListagemService();
 
@@ -21,7 +20,7 @@ export default function Modify({ isUpdate = false }) {
     const [marcaId, setMarcaId] = useState<number>(1);
     const [cor, setCor] = useState<string>('Vermelho');
     const [tipo, setTipo] = useState<string>('Suv');
-    const [reservado, setReservado] = useState<boolean>();
+    const [reservado, setReservado] = useState<boolean>(false);
     const [urlImg, setUrlImg] = useState<string>('');
     const [modelo, setModelo] = useState<string>('');
     let [obj, setObj] = useState({});
@@ -94,17 +93,17 @@ export default function Modify({ isUpdate = false }) {
 
                             <div>
                                 <label>Preço {obrigatorio}</label>
-                                <input className="form-control" onChange={e => setPreco(Number(e.target.value))} type="text" value={preco}/>
+                                <input className="form-control" onChange={e => setPreco(Number(e.target.value.replace(/[^0-9]/g, '')))} type="text" value={preco}/>
                             </div>
 
                             <div>
                                 <label>Ano {obrigatorio}</label>
-                                <input className="form-control" onChange={e => setAno(Number(e.target.value))} type="text" value={ano}/>
+                                <input className="form-control" onChange={e => setAno(Number(e.target.value.replace(/[^0-9]/g, '')))} type="text" value={ano}/>
                             </div>
 
                             <div className='mb-2'>
                                 <label>Km {obrigatorio}</label>
-                                <input className="form-control" onChange={e => setKm(Number(e.target.value))} type="text"  value={km}/>
+                                <input className="form-control" onChange={e => setKm(Number(e.target.value.replace(/[^0-9]/g, '')))} type="text"  value={km}/>
                             </div>
 
                             <div>
@@ -159,11 +158,13 @@ export default function Modify({ isUpdate = false }) {
                             <div className="form-check form-switch mb-2">
                                 <div className="d-flex">
                                     <label className="form-check-label" htmlFor="flexSwitchCheckChecked"><strong>Indisponível</strong></label>
-                                    <input className="form-check-input" onChange={e => setReservado(false)} type="checkbox" id="flexSwitchCheckChecked" />
+                                    <input className="form-check-input" onChange={e => setReservado(false)} type="checkbox" id="flexSwitchCheckChecked" 
+                                    checked={reservado ? false : true}/>
                                 </div>
                                 <div>
                                     <label className="form-check-label" htmlFor="flexSwitchCheckChecked"><strong>Disponível</strong></label>
-                                    <input className="form-check-input" onChange={e => setReservado(true)} type="checkbox" id="flexSwitchCheckChecked" />
+                                    <input className="form-check-input" onChange={e => setReservado(true)} type="checkbox" id="flexSwitchCheckChecked" 
+                                    checked={reservado ? true : false}/>
                                 </div>
                             </div>
                         </div>

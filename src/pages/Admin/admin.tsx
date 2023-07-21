@@ -10,6 +10,7 @@ import UsuarioService from '../../services/UsuarioService';
 import { Carro } from '../../utils/objects';
 import EditImg from '../../assets/img/EditImg/edit';
 import TrashImg from '../../assets/img/TrashImg/trash';
+import { Utils } from '../../utils/Utils';
 
 const listagemService = new ListagemService();
 
@@ -34,8 +35,7 @@ export default function Admin() {
     }
 
     const proximo = () => {
-        console.log("pageNumber: " + pageNumber + " / " + page.number)
-        if (pageNumber < 1) setPageNumber(++page.number);
+       setPageNumber(++page.number);
     }
 
 
@@ -111,14 +111,14 @@ export default function Admin() {
                                 <tr key={carro.id}>
                                     <td><strong>{carro.id}</strong></td>
                                     <td>{carro.nome}</td>
-                                    <td>{carro.preco}</td>
+                                    <td>{Utils.formatarMilhares(carro.preco)}</td>
 
-                                    <td style={naoExibirEsteCampoSeForMobile()}>{carro.km}</td>
+                                    <td style={naoExibirEsteCampoSeForMobile()}>{Utils.formatarMilhares(carro.km)}</td>
                                     <td style={naoExibirEsteCampoSeForMobile()}>{carro.reservado ? 'sim' : 'não'}</td>
                                     <td style={naoExibirEsteCampoSeForMobile()}>{carro.ano}</td>
                                     <td style={naoExibirEsteCampoSeForMobile()}>{carro.cor}</td>
                                     <td style={naoExibirEsteCampoSeForMobile()}>{carro.tipo}</td>
-                                    <td style={naoExibirEsteCampoSeForMobile()}>{carro.marca.marca}</td>
+                                    <td style={naoExibirEsteCampoSeForMobile()}>{carro.marca.marca.toUpperCase()}</td>
                                     <td style={naoExibirEsteCampoSeForMobile()}>{carro.modelo}</td>
 
                                     <td>
@@ -130,9 +130,9 @@ export default function Admin() {
                             ))}
                         </tbody>
                     </table>
-                </div> </section>}
-
-            <Paginacao page={page} inicio={inicio} proximo={proximo} anterior={anterior} pageNumber={pageNumber} />
+                    <Paginacao page={page} inicio={inicio} proximo={proximo} anterior={anterior} pageNumber={pageNumber} />
+                </div> 
+                </section>}
         </>
     );
 };

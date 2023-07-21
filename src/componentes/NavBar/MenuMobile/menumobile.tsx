@@ -9,9 +9,7 @@ interface MenuMobileProps {
 const MenuMobile: React.FC<MenuMobileProps> = ({ handleClickOnSair }) => {
     const [menuAberto, setMenuAberto] = useState<boolean>(false);
 
-    const openMenu = (e: any) => {
-        setMenuAberto(!menuAberto);
-    }
+    const openMenu = (e: any) => setMenuAberto(!menuAberto);
 
     return (
         <div className='menu-mobile'>
@@ -22,10 +20,9 @@ const MenuMobile: React.FC<MenuMobileProps> = ({ handleClickOnSair }) => {
             {menuAberto ?
                 (
                     <ul className='menu-options animate__animated animate__fadeInRightBig'>
-                        <li><Link to={"/login"} className='btn btn-option'>Login</Link></li>
+                         <li><Link to={"/"} className='btn btn-option'>Home</Link></li>
                         <li><Link to={"/administracao"} className='btn btn-option'>Admin</Link></li>
                         <li><Link to={"/carros/salvar"} className='btn btn-option'>Salvar</Link></li>
-                        <li><Link to={""} className='btn btn-option'>Voltar</Link></li>
                         <li><button className='btn btn-option' onClick={handleClickOnSair}>Sair</button></li>
                     </ul>
                 )

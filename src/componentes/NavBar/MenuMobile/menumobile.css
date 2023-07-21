@@ -26,8 +26,7 @@
 .menu-options {
     background: black;
     border-left: 2px solid rgb(1, 87, 1);
-    box-shadow: -10px 0 10px rgba(0, 0, 0, 0.2); 
-    height: 100vh;
+    box-shadow: -10px 0 10px rgba(0, 0, 0, 0.2);
     position: absolute;
     z-index: 2;
     right: 0;
@@ -35,6 +34,7 @@
     width: 70vw;
     list-style: none;
     padding: 0;
+    height: 100%;
 
     background: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(5px);
