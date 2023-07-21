@@ -22,6 +22,6 @@
     }
 
     .isMobile {
-        display: none;
+        display: none !important;
     }
 }

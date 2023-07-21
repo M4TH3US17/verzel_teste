@@ -12,6 +12,7 @@ const HomeCard: React.FC<HomeCardProps> = ({ carro }) => {
         <div className="col-sm-12 col-md-6 col-lg-3 mb-3">
 
             <div className='cardCarro card'>
+                <div className ="reservado" style={{display: carro.reservado ? 'none' : 'block'}}>RESERVADO</div>
               <img src={carro.urlImagem} alt={"Foto de um " + carro.nome}/>
               <div>
                  <h3>{carro.marca.marca +" "+carro.nome}</h3>

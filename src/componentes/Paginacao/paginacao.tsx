@@ -1,6 +1,6 @@
 import React from 'react';
 import './paginacao.css';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 //<span className="page-link btn-anterior">Anterior</span>
 // 
 interface PaginacaoProps {
@@ -13,6 +13,8 @@ interface PaginacaoProps {
 
 const Paginacao: React.FC<PaginacaoProps> = ({ page, inicio, proximo, anterior }) => {
   let pageNumber: number = 0;
+  const location = useLocation();
+
   try {
     pageNumber = page.number;
     if (pageNumber !== 0) document.querySelector('.page-item')?.classList.remove('disabled');
@@ -22,7 +24,8 @@ const Paginacao: React.FC<PaginacaoProps> = ({ page, inicio, proximo, anterior }
 
   return (
     <div className='paginacao d-flex align-items-center justify-content-between'>
-      <Link to={"/carros/salvar"} className='btn btn-desktop btn-primary isMobile'>Cadastrar Carro</Link>
+      <Link to={"/carros/salvar"} className='btn btn-desktop btn-primary isMobile' 
+      style={{display: location.pathname == "/" ? "none" : "block"}}>Cadastrar Carro</Link>
 
       <div>
         <ul className="pagination justify-content-center">

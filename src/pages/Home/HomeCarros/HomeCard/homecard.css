@@ -8,6 +8,15 @@
     text-align: center;
 }
 
+.reservado {
+    position: absolute;
+    background: red;
+    font-weight: bold;
+    padding: 4px;
+    color: white;
+    opacity: 0.4;
+}
+
 .card-descricao {
     font-size:   0.775em;
     font-weight: 600;

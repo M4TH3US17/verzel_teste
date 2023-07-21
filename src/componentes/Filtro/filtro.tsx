@@ -13,7 +13,7 @@ export default function Filtro() {
                         <input type="text" className="form-control-md form-control-search d-none d-md-block" placeholder='Busque por marca, ano ou modelo' />
 
                         <span className="input-group-btn">
-                            <button className='d-none d-md-block btn btn-default btn-primary' type="button"><i className="bi bi-search"></i></button>
+                            <button className='d-none d-md-block btn btn-default btn-primary' type="button">buscar</button>
                         </span>
                     </div>
                 </div>
