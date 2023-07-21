@@ -66,7 +66,10 @@ export default function Modify({ isUpdate = false }) {
 
         if(typeof(carroId) === 'undefined') {
             listagemService.criarCard(corpoRequisicao)
-            .then(()     => toast.success('Carro salvo com sucesso!'))
+            .then(()     => {
+                toast.success('Carro salvo com sucesso!');
+                navigate("/administracao")
+            })
             .catch(error => {
                let erros = error.response.data;
                for(let stacktrace in erros) toast.error(erros[stacktrace].error);});

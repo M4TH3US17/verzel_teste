@@ -45,13 +45,15 @@ const HomeCarros = () => {
                 if (info.code !== 404) setCarros(info.data.content);
 
                 setStatusCode(info.code);
+                setPageNumber(info.data.number);
             } catch (error) {
+                window.location.reload();
                 console.error('Erro ao carregar os dados:', error);
             }
         };
 
         carregarDados();
-    }, [pageNumber, ordem, filtro, setCarros, setStatusCode]);
+    }, [pageNumber, ordem, filtro, setCarros, setPageNumber, setStatusCode]);
 
     const inicio = () => {
         setPageNumber(0);

@@ -12,8 +12,13 @@ interface PaginacaoProps {
 }
 
 const Paginacao: React.FC<PaginacaoProps> = ({ page, inicio, proximo, anterior }) => {
-  let pageNumber = page.number;
-  if (pageNumber !== 0) document.querySelector('.page-item')?.classList.remove('disabled');
+  let pageNumber: number = 0;
+  try {
+    pageNumber = page.number;
+    if (pageNumber !== 0) document.querySelector('.page-item')?.classList.remove('disabled');
+  } catch(error) {
+    console.log("ERRO DISPARADO: " + error)
+  }
 
   return (
     <div className='paginacao d-flex align-items-center justify-content-between'>

@@ -35,8 +35,8 @@ export default function Admin() {
     }
 
     const proximo = () => {
-        if(pageNumber < 2)setPageNumber(++page.number);
-    }
+         setPageNumber(prevPageNumber => prevPageNumber + 1);
+      }
 
 
     document.addEventListener('click', (e: MouseEvent) => {
@@ -69,18 +69,23 @@ export default function Admin() {
                     if (info.code !== 404) setCarros(info.data.content);
                     setPage(info.data);
                     setStatusCode(info.code);
+                    if(statusCode !== 404) setPageNumber(pageNumber == null || pageNumber == undefined? 0 : info.data.number);
                 } else navigate("/login");
             } catch (error) {
+                window.location.reload();
                 console.error('Erro ao carregar os dados:', error);
             }
         };
 
         carregarDados();
-    }, [pageNumber, setIsMobile, setPage, setStatusCode, ordem, filtro]);
+    }, [pageNumber, setPageNumber, setIsMobile, setPage, setStatusCode, ordem, filtro]);
 
     const handleClickDelete = (idCarro: number) => {
         listagemService.deletaCard(idCarro)
-            .then(() => toast.success('Carro de ID ' + idCarro + ' foi deletado.'))
+            .then(() => {
+                toast.success('Carro de ID ' + idCarro + ' foi deletado.') 
+                window.location.reload();
+            })
             .catch(() => toast.error('Esse carro já foi deletado.'));
     };
 
@@ -137,7 +142,7 @@ export default function Admin() {
                             ))}
                         </tbody>
                     </table>
-                    <Paginacao page={page} inicio={inicio} proximo={proximo} anterior={anterior} pageNumber={pageNumber} />
+                    <Paginacao page={page} inicio={inicio} proximo={statusCode !== 404? proximo : () => {}} anterior={anterior} pageNumber={pageNumber} />
                 </div>
             </section>}
         </>
