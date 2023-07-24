@@ -1,13 +1,33 @@
 import React, { Dispatch, SetStateAction } from 'react';
 
-type GlobalContextType = {
-  estaAutenticado: boolean; // Alterado o tipo para boolean
-  setEstaAutenticado: Dispatch<SetStateAction<boolean>>;
+interface GlobalContextType {
+  autenticacao: {
+    estaAutenticado: boolean;
+    setEstaAutenticado: Dispatch<SetStateAction<boolean>>;
+  };
+  tema: {
+    isDark: boolean;
+    setIsDark: Dispatch<SetStateAction<boolean>>;
+  };
+}
+
+type GlobalContextTheme = {
+  isDark: boolean; 
+  setIsDark: Dispatch<SetStateAction<boolean>>;
 };
 
-const GlobalContext = React.createContext<GlobalContextType>({
-  estaAutenticado: false,
-  setEstaAutenticado: () => {}
+export const GlobalContextTheme = React.createContext<GlobalContextTheme>({
+  isDark: false,
+  setIsDark: () => {}
 });
 
-export default GlobalContext;
+export const GlobalContext = React.createContext<GlobalContextType>({
+  autenticacao: {
+    estaAutenticado: false,
+    setEstaAutenticado: () => {}
+  },
+  tema: {
+    isDark: false,
+    setIsDark: () => {}
+  }
+});

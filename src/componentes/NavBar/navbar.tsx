@@ -3,36 +3,34 @@ import './navbar.css'
 import Logo from '../../assets/img/Logo/logo';
 import MenuMobile from './MenuMobile/menumobile';
 import MenuDesktop from './MenuDesktop/menudesktop';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import UsuarioService from '../../services/UsuarioService';
-import GlobalContext from '../../utils/GlobalContext';
+import { GlobalContext } from '../../utils/GlobalContext';
 
 const NavBar = () => {
     let navigate = useNavigate();
-    const { estaAutenticado, setEstaAutenticado } = useContext(GlobalContext);
+    const { autenticacao, tema } = useContext(GlobalContext);
+    const { estaAutenticado, setEstaAutenticado } = autenticacao;
 
     const handleClickOnSair = () => {
         new UsuarioService().logout();
         // window.location.reload();
-        navigate("/login");
+        navigate("/");
         setEstaAutenticado(false);
     }
 
     return (
         <>
-          {estaAutenticado ? (
             <header className='carros-header-container'>
               <nav className='container'>
                 <div className='carros-nav-content'>
-                  <Logo />
-                  <MenuDesktop handleClickOnSair={handleClickOnSair} />
-                  <MenuMobile handleClickOnSair={handleClickOnSair} />
+                  <Link to={"/"} className='logo'><Logo /></Link>
+
+                  <MenuDesktop handleClickOnSair={handleClickOnSair} estaAutenticado={estaAutenticado}/>
+                  <MenuMobile handleClickOnSair={handleClickOnSair} estaAutenticado={estaAutenticado} />
                 </div>
               </nav>
             </header>
-          ) : (
-            <></>
-          )}
         </>
       );
 };

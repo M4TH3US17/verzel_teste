@@ -8,15 +8,21 @@ import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.min.css';
 import Page404 from './pages/Page404/page404';
 import Login from './pages/Login/login';
-import GlobalContext from './utils/GlobalContext';
 import UsuarioService from './services/UsuarioService';
+import { GlobalContext } from './utils/GlobalContext';
 
 function App() {
   const [estaAutenticado, setEstaAutenticado] = useState<boolean>(new UsuarioService().estaAutenticado());
+  const [isDark, setIsDark] = useState<boolean>(false);
+
+  const contextValue = {
+    autenticacao: { estaAutenticado, setEstaAutenticado },
+    tema: { isDark, setIsDark }
+  };
 
   return (
     <Router>
-      <GlobalContext.Provider value={{ estaAutenticado, setEstaAutenticado }}>
+      <GlobalContext.Provider value={contextValue}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />

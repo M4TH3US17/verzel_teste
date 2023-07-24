@@ -6,7 +6,7 @@ import                     './login.css';
 import { toast } from 'react-toastify';
 import NavBar from '../../componentes/NavBar/navbar';
 import { Usuario } from '../../utils/objects';
-import GlobalContext from '../../utils/GlobalContext';
+import { GlobalContext } from '../../utils/GlobalContext';
 
 const usuarioService = new UsuarioService();
 
@@ -14,7 +14,8 @@ export default function Login() {
     const [username, setUsername] = useState('');
     const [senha, setSenha]       = useState('');
     let navigate                  = useNavigate();
-    const { estaAutenticado, setEstaAutenticado } = useContext(GlobalContext);
+    const { autenticacao, tema } = useContext(GlobalContext);
+    const { estaAutenticado, setEstaAutenticado } = autenticacao;
 
     useEffect(() => {if(estaAutenticado) navigate("/administracao", {replace: true})},[])
 
@@ -23,7 +24,7 @@ export default function Login() {
     
         usuarioService.login(new Usuario(username, senha))
             .then(()  =>  {
-                navigate("/administracao")
+                navigate("/")
                 setEstaAutenticado(true);
             })
             .catch(() => toast.error('Usuário não encontrado.'));

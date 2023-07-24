@@ -10,6 +10,7 @@
     width:      18.75em;
     border:   #858484 0.03125px solid;
     border-radius: 0px;
+    padding-left: 5px;
 }
 
 .form-select {
@@ -20,6 +21,18 @@
     border:      #1d1e20 0.0625em dotted;
     background-color: #fafafa;
 }
+
+.btn-search {
+    border: 0 !important;
+    border-radius: 0 !important;
+
+    background: black;
+}
+
+.btn-search:hover {
+    background: black;
+}
+
 
 .btn-default {
     margin-top: 0.625em;

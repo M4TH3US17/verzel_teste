@@ -92,6 +92,7 @@ export default function Admin() {
     const naoExibirEsteCampoSeForMobile = () => {
         return { display: isMobile ? 'none' : 'table-cell' };
     }
+
     return (
         <>
             <NavBar />

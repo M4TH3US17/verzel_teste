@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import './HomeCarros.css'
 import ListagemService from '../../../services/ListagemService';
 import HomeCard from './HomeCard/homecard';
 import { Carro } from '../../../utils/objects';
 import Paginacao from '../../../componentes/Paginacao/paginacao';
 import Filtro from '../../../componentes/Filtro/filtro';
+import { GlobalContextTheme } from '../../../utils/GlobalContext';
 
 const listagemService = new ListagemService();
 
