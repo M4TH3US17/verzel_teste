@@ -5,7 +5,7 @@
 .btn-burguer {
     padding: 0px;
     max-width: 30px;
-    color: black;
+    color: white;
 }
 
 .btn-burguer:hover {
@@ -15,12 +15,13 @@
 .bi.bi-list {
     color: black;
     font-size: 20px;
-    color: black;
+    color: white;
 }
 
 .bi-x-lg {
     padding: 0px;
     font-size: 20px;
+    color: white;
 }
 
 .menu-options {

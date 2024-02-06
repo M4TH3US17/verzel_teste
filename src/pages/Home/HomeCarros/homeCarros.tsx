@@ -69,12 +69,12 @@ const HomeCarros = () => {
     }
 
     return (
-        <div className="container">
-
+        <div>
             <Filtro />
-            <section className="row">
-                {carros.map(carro => (<HomeCard key={carro.id} carro={carro} />))}
-            </section>
+
+                <div className='home-carros-card-list'>
+                    {carros.map(carro => (<HomeCard key={carro.id} carro={carro} />))}
+                </div>
 
             <Paginacao page={page} inicio={inicio} proximo={proximo} anterior={anterior} pageNumber={pageNumber} />
         </div>

@@ -1,3 +1,13 @@
+.home-carros-card-list {
+    display:   flex;
+    flex-wrap: wrap;
+    gap:       20px;
+    justify-content: center;
+    min-height: 860px;
+    position: relative;
+    margin-bottom: 30px;
+}
+
 @media (min-width: 1380px) {
     .row {
         min-height: 562px;

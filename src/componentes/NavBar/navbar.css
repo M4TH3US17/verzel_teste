@@ -1,10 +1,10 @@
 .logo {
-    background: none;
+    background: white;
 }
 
 .carros-header-container {
     padding:            25px;
-    background-color: #fafafa;
+    background-color: #161A30;
     box-shadow: 0.5px 0px 2px 0.5px gray;
 }
 

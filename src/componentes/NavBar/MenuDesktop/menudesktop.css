@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@400;500&display=swap');
+
 .btn-desktop {
     height: 100%;
     border-radius: 0;
@@ -5,11 +7,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Roboto', sans-serif;
+}
+
+.btn-desktop:hover {
+    color: #EEEDEB;
 }
 
 .isSelected {
-    background: rgb(206, 206, 206);
-    border-bottom: 5px solid black;
+    background: #31304D;
+    border-bottom: 5px solid #B6BBC4;
 }
 
 .menu-desktop {

@@ -1,6 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@400;500&display=swap');
+
+* {
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Roboto', sans-serif;
+}
+
+.search-container .input-group{
+    display: flex;
+    flex-direction: column;
+}
+
 .carros-filtro-container {
     font-size: 16px;
-    padding: 2px;
+    padding: 10px;
+    margin-bottom: 50px;
+
+    background: #F0F0F0;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
 }
 
 .form-control-search {
@@ -8,25 +24,31 @@
     margin-top: 0.625em;
     height:     2.4375em;
     width:      18.75em;
-    border:   #858484 0.03125px solid;
     border-radius: 0px;
     padding-left: 5px;
+    outline: none;
+    border: none;
+    border-bottom: 3px solid #191919;
+
+    background: #FBF9F1;
 }
 
 .form-select {
     font-size:     1rem;
-    margin-top:    0.625em;
+    margin-top:    30px;
     width:         12.5em;
     border-radius: 2px;
-    border:      #1d1e20 0.0625em dotted;
-    background-color: #fafafa;
+    background-color: #191919;
+    height:     50px;
+    color: white;
 }
 
 .btn-search {
     border: 0 !important;
     border-radius: 0 !important;
+    width: 300px;
 
-    background: black;
+    background: #191919;
 }
 
 .btn-search:hover {
@@ -44,5 +66,6 @@
     .form-select {
         height: 2.6875em;
         width:  8.125em;
+        margin-top: 0.625em;
     }
 }

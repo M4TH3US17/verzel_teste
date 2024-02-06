@@ -1,62 +1,185 @@
-.card {
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@400;500&display=swap');
+
+.home-card-container {
+    display:                  flex;
+    flex-direction:         column;
+    justify-content: space-between;
+    padding: 8px;
+    height: 420px;
+    width:  360px;
+    background: #F9F9F9;
     cursor: pointer;
-    height: 16.5625em;
-    background-color: #fafafa;
-    box-shadow: 0px 0.1px 0px 0.1px;
-    border-radius: 0.125em;
-    font-size: 1rem;
-    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Roboto', sans-serif;
+
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.3);
 }
 
-.reservado {
-    position: absolute;
+/* IMAGE CONTAINER */
+.home-card-container .home-card-image-container {}
+
+.home-card-container .home-card-image-container .home-card-image {
+    height: 250px;
+    width: 100%;
+    border-top-right-radius: 4px;
+    border-top-left-radius:  4px;
+}
+
+.home-card-container .home-card-description-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 132px;
+}
+
+.home-card-container .home-card-description-container .home-card-description-display-container .home-card-description-display-info {
     background: red;
-    font-weight: bold;
-    padding: 4px;
-    color: white;
-    opacity: 0.4;
 }
 
-.card-descricao {
-    font-size:   0.775em;
-    font-weight: 600;
-    color:     #858484;
+.home-card-container .home-card-description-container .home-card-description-display-info .home-card-description-display-container {
+    display:        flex;
+    justify-content: space-between;
+    padding-top:    10px;
+    padding-bottom: 10px;
+    padding-left:  11px;
+    padding-right: 11px;
+    cursor:     pointer;
+    font-weight:   bold;
+    background: #F0F0F0;
+    font-family: 'Montserrat', sans-serif;
+    font-family:     'Roboto', sans-serif;
+    position:                    relative;
 }
 
-.card-preco {
-    font-weight: 700;
-    font-size: 1.0625em;
-    color: #222222;
-}
-
-h3 {
-    font-size: 0.9375em;
-    margin-top: 0.25em;
-    margin-bottom: 0em;
+.home-card-container .home-card-description-container .home-card-description-display-info .home-card-description-display-container .home-card-description-display-info-text {
+    font-size: 14px;
     font-weight: bolder;
 }
 
-.cardCarro {
-    width: 99%;
-    padding: 0.3125em;
+.home-card-container .home-card-description-container .home-card-description-display-container .home-card-description-display-info .bi.i-plus-lg {
+    font-size: 17px;
 }
 
-.cardCarro img {
-    height: 11.25em;
-    width: 100%;
-    border-radius: 0.125em;
+.home-card-container .home-card-description-container .home-card-description-text {
+    margin-top: 2px;
 }
 
-.card:hover {
-    box-shadow: 0px 0px 7px 2px #e9e9ff;
+.home-card-container .home-card-description-container .home-card-description-text .home-card-description-text-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-left: 4px;
+    margin-bottom: 10px;
 }
 
-@media (max-width: 414px) {
-    .cardCarro img {
-        height: 14.375em;
-    }
+.home-card-container .home-card-description-container .home-card-description-text .home-card-description-display-info .home-card-description-text-info {
+    display:          flex;
+    flex-direction: column;
+    width:           344px;
+    align-items:    center;
+    background: #F0F0F0;
+    position:     absolute;
+    color:       #6E6D6D;
+    justify-content:  left;
+    z-index:             2;
+}
 
-    .card {
-        height: 19.5em;
-    }
+.home-card-container .home-card-description-container .home-card-description-text .home-card-description-display-info .home-card-description-text-info .home-card-description-text-info-item {
+    display:       flex;
+    align-items: center;
+    gap:            8px;
+    font-weight:    500;
+    font-size:     14px;
+    width:         100%;
+    color:      black;
+    font-family: 'Montserrat', sans-serif;
+    font-family:     'Roboto', sans-serif;
+    padding:                          5px;
+    padding-left:                    10px;
+    border-bottom: 0.5px solid #e4e4e4;
+    position: relative;
+}
+
+/* CARD DESCRIPTION */
+.home-card-container .home-card-description-details {
+    display: flex;
+    justify-content: space-between;
+}
+
+.home-card-container .home-card-description-details .home-card-description-details-price {
+    font-size: 19px;
+    margin-top: 8px;
+    font-weight: bold;
+    color: #030303;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Roboto', sans-serif;
+}
+
+.home-card-container .home-card-description-details .home-card-description-details-button {
+    width: 190px;
+    padding: 1px;
+    border-radius: 2px;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+}
+
+/* COLORS (INFO) */
+.info-color-circle {
+    position: absolute;
+    padding:       7px; 
+    right:         8px;
+    bottom:        8px;
+}
+
+.color-circle-amarelo {
+    background: #E8C872;
+}
+
+.color-circle-preto {
+    background: #001524;
+}
+
+.color-circle-cinza {
+    background: #3D3B40;
+}
+
+.color-circle-vermelho {
+    background: #B31312;
+}
+
+.color-circle-prata {
+    background: #607274;
+}
+
+.color-circle-verde {
+    background: #436850;
+}
+
+.color-circle-branco {
+    background: white;
+    border: 1px solid #afafaf;
+}
+
+.color-circle-marrom {
+    background: #7E6363;
+}
+
+.color-circle-azul {
+    background: #3652AD;
+}
+
+.color-circle-default {
+    border: 1px solid black;
+}
+
+/* STATUS */
+.reservado {
+    padding:       5px;
+    padding-left:  5px;
+    padding-right: 5px;
+    position: absolute;
+    background: #B31312;
+    color:        #EEE2DE;
+    opacity: 0.3;
+    z-index: 1;
 }

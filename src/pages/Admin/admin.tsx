@@ -101,21 +101,18 @@ export default function Admin() {
             {<section>
                 <div className="container">
                     <table className="table">
-                        <thead className="table-dark">
+                        <thead className="table-sm">
                             <tr>
                                 <th scope="col">ID   </th>
-                                <th scope="col">Nome </th>
+                                <th scope="col" className='th-nome'>Nome </th>
                                 <th scope="col">Preço</th>
 
-                                <th style={naoExibirEsteCampoSeForMobile()} scope="col">KM   </th>
-                                <th style={naoExibirEsteCampoSeForMobile()} scope="col">Disponível</th>
+                                <th style={naoExibirEsteCampoSeForMobile()} scope="col">Status</th>
                                 <th style={naoExibirEsteCampoSeForMobile()} scope="col">Ano  </th>
-                                <th style={naoExibirEsteCampoSeForMobile()} scope="col">Cor  </th>
-                                <th style={naoExibirEsteCampoSeForMobile()} scope="col">Tipo </th>
                                 <th style={naoExibirEsteCampoSeForMobile()} scope="col">Marca</th>
-                                <th style={naoExibirEsteCampoSeForMobile()} scope="col">Modelo</th>
+                                <th style={naoExibirEsteCampoSeForMobile()} scope="col" className='th-modelo'>Modelo</th>
 
-                                <th>Ações</th>
+                                <th className='th-actions'>Ações</th>
                             </tr>
                         </thead>
 
@@ -124,20 +121,17 @@ export default function Admin() {
                                 <tr key={carro.id}>
                                     <td><strong>{carro.id}</strong></td>
                                     <td>{carro.nome}</td>
-                                    <td>{Utils.formatarMilhares(carro.preco)}</td>
+                                    <td>R$ {Utils.formatarMilhares(carro.preco)}</td>
 
-                                    <td style={naoExibirEsteCampoSeForMobile()}>{Utils.formatarMilhares(carro.km)}</td>
-                                    <td style={naoExibirEsteCampoSeForMobile()}>{carro.reservado ? 'sim' : 'não'}</td>
+                                    <td style={naoExibirEsteCampoSeForMobile()}>{carro.reservado ? (<i className="bi bi-check-circle-fill"></i>) : (<i className="bi bi-x-circle-fill"></i>)}</td>
                                     <td style={naoExibirEsteCampoSeForMobile()}>{carro.ano}</td>
-                                    <td style={naoExibirEsteCampoSeForMobile()}>{carro.cor}</td>
-                                    <td style={naoExibirEsteCampoSeForMobile()}>{carro.tipo}</td>
-                                    <td style={naoExibirEsteCampoSeForMobile()}>{carro.marca.marca.toUpperCase()}</td>
-                                    <td style={naoExibirEsteCampoSeForMobile()}>{carro.modelo}</td>
+                                    <td style={naoExibirEsteCampoSeForMobile()}><span className='tr-marca'>{carro.marca.marca}</span></td>
+                                    <td style={naoExibirEsteCampoSeForMobile()}><span className='tr-modelo'>{carro.modelo}</span></td>
 
-                                    <td>
-                                        <Link className="btn btn-primary btn-sm btn-edit btn-table" to={"/carros/atualizar/" + carro.id}> <EditImg /> </Link>
+                                    <td className='actions'>
+                                        <Link className="btn btn-sm btn-edit btn-table" to={"/carros/atualizar/" + carro.id}> <EditImg /> Editar</Link>
 
-                                        <button className="btn btn-danger btn-sm btn-table" onClick={() => handleClickDelete(carro.id)}> <TrashImg /></button>
+                                        <button className="btn btn-sm btn-disabled btn-table" onClick={() => handleClickDelete(carro.id)}> <TrashImg /> Deletar</button>
                                     </td>
                                 </tr>
                             ))}
