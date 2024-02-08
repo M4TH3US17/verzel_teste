@@ -32,20 +32,28 @@ const HomeCarros = () => {
             let value = (document.querySelector('.form-control-search') as HTMLInputElement).value;
             setFiltro(value);
         }
+
+        let btnLimparFiltrosEOrdenacao = (e.target as HTMLElement).classList;
+
+        if(btnLimparFiltrosEOrdenacao.contains('btn-limpar-filtro')) {
+            setFiltro("");
+            setOrdem('preco,desc');
+        }
     });
+
 
     useEffect(() => {
         const carregarDados = async () => {
             try {
                 const response = await listagemService.carregarCards(pageNumber, ordem, filtro);
                 const info = response.data;
-                let totalPaginas = info.data.totalPages;
 
                 console.log("SERVER RESPONSE: ", info);
 
                 if (info.code !== 404) setCarros(info.data.content);
 
                 setStatusCode(info.code);
+                setPage(info.data)
                 setPageNumber(info.data.number);
             } catch (error) {
                 window.location.reload();
@@ -54,7 +62,7 @@ const HomeCarros = () => {
         };
 
         carregarDados();
-    }, [pageNumber, ordem, filtro, setCarros, setPageNumber, setStatusCode]);
+    }, [pageNumber, ordem, filtro, setCarros, setPage, setPageNumber, setStatusCode]);
 
     const inicio = () => {
         setPageNumber(0);
@@ -65,7 +73,7 @@ const HomeCarros = () => {
     }
 
     const proximo = () => {
-        setPageNumber(++page.number);
+        if(statusCode !== 404) setPageNumber(++page.number);
     }
 
     return (

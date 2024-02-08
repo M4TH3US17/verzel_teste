@@ -24,7 +24,7 @@ const NavBar = () => {
             <header className='carros-header-container'>
               <nav className='container'>
                 <div className='carros-nav-content'>
-                  <Link to={"/"} className='logo'><Logo /></Link>
+                  <Link to={"/"} className='logo'>LOGO</Link>
 
                   <MenuDesktop handleClickOnSair={handleClickOnSair} estaAutenticado={estaAutenticado}/>
                   <MenuMobile handleClickOnSair={handleClickOnSair} estaAutenticado={estaAutenticado} />

@@ -71,6 +71,10 @@ tr {
     width: 150px;
 }
 
+.th-marca {
+    width: 140px;
+}
+
 @media (max-width: 768px) {
     .btn-edit {
         margin-bottom: 4px;
@@ -88,6 +92,10 @@ tr {
 }
 
 @media (min-width: 1024px) {
+    .th-preco {
+        width: 150px;
+    }
+    
     .btn-edit {
         margin-right: 10px;
     }

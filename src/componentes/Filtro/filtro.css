@@ -5,6 +5,33 @@
     font-family: 'Roboto', sans-serif;
 }
 
+.order-container {
+}
+
+.btn-limpar-filtro {
+    width: 200px;
+    background: #030637;
+    color: white;
+    border-radius: 2px;
+    margin-top: -37px;
+    box-shadow: 0px 4px 4px #0000001a;
+}
+
+.select-filtro {
+    position: relative;
+    background: #0c0f49 !important;
+    top: -24px;
+    box-shadow: 0px 4px 3px #0000001a;
+}
+
+.filtro-arrow {
+    position: absolute;
+    color: white;
+    top: -7.5px;
+    right: 15px;
+    z-index: 3;
+}
+
 .search-container .input-group{
     display: flex;
     flex-direction: column;
@@ -15,8 +42,8 @@
     padding: 10px;
     margin-bottom: 50px;
 
-    background: #F0F0F0;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+    background: #EFF5F5; 
+    box-shadow: 0px 4px 4px #0000001a;
 }
 
 .form-control-search {
@@ -24,13 +51,13 @@
     margin-top: 0.625em;
     height:     2.4375em;
     width:      18.75em;
-    border-radius: 0px;
     padding-left: 5px;
     outline: none;
     border: none;
-    border-bottom: 3px solid #191919;
+    border-left: 4px solid #12372A;
+    box-shadow: 0.5px 0px 3px 0.5px #d6d6d6;
 
-    background: #FBF9F1;
+   /* background: #FBF9F1;*/
 }
 
 .form-select {
@@ -45,10 +72,11 @@
 
 .btn-search {
     border: 0 !important;
-    border-radius: 0 !important;
+    border-radius: 2px !important;
     width: 300px;
 
-    background: #191919;
+    background: #030637;
+    box-shadow: 0px 4px 4px #0000001a;
 }
 
 .btn-search:hover {

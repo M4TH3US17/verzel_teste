@@ -1,38 +1,4 @@
-/*.pagination {
-    margin: 0;
-}
-
-.paginacao {
-    display: flex;
-    align-items: center;
-}
-
-@media (max-width: 414px) {
-    .paginacao {
-        margin-bottom: 9px;
-    }
-
-    .paginacao-information-text {
-        display: none;
-    }
-
-    .isMobile {
-        display: none !important;
-    }
-}
-
-@media (min-width: 1024px) {
-    .paginacao-informations {
-        display: none;
-    }
-
-    .paginacao {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        background-color: red;
-    }
-}*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@400;500&display=swap');
 
 .pagination {
     display: flex;
@@ -74,7 +40,9 @@
     margin-top: 35px;
     border-radius: 3px;
     padding: 10px;
-    background: #0766AD;
+    background: #59B4C3;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 @media (min-width: 1024px) {

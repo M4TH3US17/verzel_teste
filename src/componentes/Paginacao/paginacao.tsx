@@ -20,7 +20,7 @@ const Paginacao: React.FC<PaginacaoProps> = ({ page, inicio, proximo, anterior }
   } catch (error) {
     console.log("ERRO DISPARADO: " + error)
   }
-
+  
   return (
     <div className='pagination'>
       <Link to={"/carros/salvar"} className='btn btn-desktop btn-primary isMobile btn-save' style={{ display: location.pathname == "/" ? "none" : "block" }}> 

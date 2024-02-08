@@ -53,6 +53,13 @@ export default function Admin() {
             let value = (document.querySelector('.form-control-search') as HTMLInputElement).value;
             setFiltro(value);
         }
+
+        let btnLimparFiltrosEOrdenacao = (e.target as HTMLElement).classList;
+
+        if(btnLimparFiltrosEOrdenacao.contains('btn-limpar-filtro')) {
+            setFiltro("");
+            setOrdem('preco,desc');
+        }
     });
 
     useEffect(() => {
@@ -105,11 +112,11 @@ export default function Admin() {
                             <tr>
                                 <th scope="col">ID   </th>
                                 <th scope="col" className='th-nome'>Nome </th>
-                                <th scope="col">Preço</th>
+                                <th scope="col" className='th-preco'>Preço</th>
 
                                 <th style={naoExibirEsteCampoSeForMobile()} scope="col">Status</th>
                                 <th style={naoExibirEsteCampoSeForMobile()} scope="col">Ano  </th>
-                                <th style={naoExibirEsteCampoSeForMobile()} scope="col">Marca</th>
+                                <th style={naoExibirEsteCampoSeForMobile()} scope="col" className='th-marca'>Marca</th>
                                 <th style={naoExibirEsteCampoSeForMobile()} scope="col" className='th-modelo'>Modelo</th>
 
                                 <th className='th-actions'>Ações</th>

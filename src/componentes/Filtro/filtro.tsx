@@ -4,9 +4,10 @@ import { GlobalContextTheme } from '../../utils/GlobalContext';
 
 export default function Filtro() {
     const ordem = [{ id: 1, descricao: 'Menor KM' }, { id: 2, descricao: 'Menor Preço' }, { id: 3, descricao: 'Maior KM' }, { id: 4, descricao: 'Mais Novos' }];
+
     return (
         <nav className={`carros-filtro-container`}>
-            <div className="container d-flex justify-content-between container-nav">
+            <div className="container d-flex justify-content-between">
 
                 <div className='col-lg-6 search-container'>
                     <div className='input-group'>
@@ -18,11 +19,18 @@ export default function Filtro() {
                     </div>
                 </div>
 
+                <div className='order-container'>
+                    <div style={{ position: 'relative' }}>
+                        <i className="bi bi-caret-down-fill filtro-arrow"></i>
+                        <select className='form-select form-select-lg mb-2 select-filtro'>
+                            <option disabled>Ordenar Carros</option>
+                            {ordem.map(x => (<option key={x.id}>{x.descricao}</option>))}
+                        </select>
+                    </div>
 
-                    <select className='form-select form-select-lg mb-2'>
-                        <option disabled>Ordenar Carros</option>
-                        {ordem.map(x => (<option key={x.id}>{x.descricao}</option>))}
-                    </select>
+                    <button className='btn btn-limpar-filtro'>Limpar Filtros</button>
+                </div>
+
             </div>
         </nav>
     );
