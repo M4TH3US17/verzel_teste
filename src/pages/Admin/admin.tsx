@@ -100,6 +100,29 @@ export default function Admin() {
         return { display: isMobile ? 'none' : 'table-cell' };
     }
 
+    const retornaLogoDaMarca = (marca: string) => {
+        marca = marca.toUpperCase();
+        switch(marca) {
+            case 'BMW':
+                return <div className='table-logo-marca bmw-logo'/>;
+            case 'CITROEN':
+                return <div className='table-logo-marca citroen-logo'/>;
+            case 'DODGE':
+                return <div className='table-logo-marca dodge-logo'/>;
+            case 'NISSAN':
+                return <div className='table-logo-marca nissan-logo'/>;
+            case 'AUDI':
+                return <div className='table-logo-marca audi-logo'/>;
+            case 'CHERY':
+                return <div className='table-logo-marca chery-logo'/>;
+            case 'CHEVROLET':
+                return <div className='table-logo-marca chevrolet-logo'/>;
+            default:
+                return <div className='table-logo-marca'>{marca}</div>;
+        }
+    }
+
+
     return (
         <>
             <NavBar />
@@ -132,7 +155,7 @@ export default function Admin() {
 
                                     <td style={naoExibirEsteCampoSeForMobile()}>{carro.reservado ? (<i className="bi bi-check-circle-fill"></i>) : (<i className="bi bi-x-circle-fill"></i>)}</td>
                                     <td style={naoExibirEsteCampoSeForMobile()}>{carro.ano}</td>
-                                    <td style={naoExibirEsteCampoSeForMobile()}><span className='tr-marca'>{carro.marca.marca}</span></td>
+                                    <td style={naoExibirEsteCampoSeForMobile()}><span className='tr-marca'>{retornaLogoDaMarca(carro.marca.marca)}</span></td>
                                     <td style={naoExibirEsteCampoSeForMobile()}><span className='tr-modelo'>{carro.modelo}</span></td>
 
                                     <td className='actions'>

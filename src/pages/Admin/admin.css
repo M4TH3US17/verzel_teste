@@ -75,6 +75,69 @@ tr {
     width: 140px;
 }
 
+.table-logo-marca {
+    padding: 12px;
+    width: 20px;
+    margin-left: 10px;
+}
+
+.bmw-logo {
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGtTtMKs9PqsrpYY6tQwsFmPffz-pbBaNBXby0RxZxCw&s');
+    background-size: 100%;
+    padding: 14px;
+}
+
+.citroen-logo {
+    background-image: url('https://www.gpfrance.com.br/citroen/Images/Sobre/Logo-citroen.jpg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    padding-left:  19px;
+    padding-right: 19px;
+    margin-top: 8px;
+    margin-left: 5px;
+}
+
+.dodge-logo {
+    background-image: url('https://logos-download.com/wp-content/uploads/2017/11/Dodge_logo.svg');
+    background-size: 100%;
+    padding: 17px;
+    margin-left: 5px;
+}
+
+.nissan-logo {
+    background-image: url('https://static.vecteezy.com/ti/vetor-gratis/p1/20502748-nissan-marca-logotipo-carro-simbolo-nome-vermelho-projeto-japao-automovel-ilustracao-gratis-vetor.jpg');
+    background-size: 100% 100%;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    padding-right: 20px;
+    padding-left: 30px;
+    margin-left: -3px;
+}
+
+.audi-logo {
+    background-image: url('https://logowik.com/content/uploads/images/562_audi.jpg');
+    background-size: 100% 100%;
+    padding: 30px;
+    padding-left: 44px;
+    padding-right: 40px;
+    margin-left: -20px;
+}
+
+.chery-logo {
+    background-image: url('https://cdn.logoeps.net/wp-content/uploads/2012/05/chery_logo.jpg');
+    background-size: 100% 100%;
+    padding: 18px;
+}
+
+.chevrolet-logo {
+    background-image: url('https://assets.turbologo.com/blog/en/2021/11/18084253/chevy-logo-2011.png');
+    background-size: 100% 100%;
+    padding: 25px;
+    padding-left: 36px;
+    padding-right: 36px;
+    margin-left: -12px;
+}
+
 @media (max-width: 768px) {
     .btn-edit {
         margin-bottom: 4px;
@@ -105,10 +168,11 @@ tr {
     }
 
     .th-actions {
-        width: 250px;
+        width: 290px;
     }
 
     .th-nome {
         width: 250px;
     }
+
 }

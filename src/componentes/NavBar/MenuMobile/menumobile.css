@@ -58,7 +58,7 @@
     padding-top: 10px;
 }
 
-@media (max-width: 414px) {
+@media (max-width: 450px) {
     .menu-mobile {
         display: block;
     }
